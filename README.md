@@ -1,10 +1,10 @@
 # Tarea1-robótica
 
-Vicente Rosales
-Manuel Aguilera
-Alex Alfaro
-Eliseo Guarda
-Pedro Nordenflycht
+Vicente Rosales<br>
+Manuel Aguilera<br>
+Alex Alfaro<br>
+Eliseo Guarda<br>
+Pedro Nordenflycht<br>
 
 ## Preguntas parte 1:
 
