@@ -6,6 +6,11 @@ Alex Alfaro<br>
 Eliseo Guarda<br>
 Pedro Nordenflycht<br>
 
+## Videos demostración
+
+Parte 1: https://www.youtube.com/watch?v=PZLfdyxwgxA
+Parte 2: https://www.youtube.com/watch?v=-RQUt73RMwE
+
 ## Preguntas parte 1:
 
 **¿Qué función cumplen los sensores, actuadores y controladores en el robot?**
