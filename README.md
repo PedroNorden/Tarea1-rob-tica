@@ -27,3 +27,22 @@ Pulse Width Modulation o PWM es un pulso enviado desde el controlador hacia el m
 **¿Cómo afecta el control de velocidad a la precisión de la navegación sin encoders?**
 
 Al controlar la velocidad sin encoders, se pasan por alto las imperfecciones de la ruta o de las ruedas, por lo que el control de velocidad por medio de PWM, por ejemplo, va a ser constante y no se adapta a estas situaciones que cambian la distancia recorrida. Por esto, la precisión de la navegación es poco confiable.
+
+
+## Preguntas parte 2
+
+**¿Cómo se calcula la velocidad del robot sin encoders usando PWM?**
+
+Se puede estimar la velocidad usando PWMs al enviar pulsos que hacen avanzar al robot, para luego calcular cuando tiempo tardó en recorrer una distancia específica. Este mismo experimento puede ser realizado varias veces para calibrar al robot, así finalmente se va a tener una estimación acertada de cual es la velocidad del robot al moverse usando PWM.
+
+**¿Cómo factores afectan la trayectoria y velocidad del robot al cambiar los intervalos de tiempo?**
+
+Estos cambian ya que si se tiene un intervalo muy grande, se hacen recorrecciones muy tarde, alterando la trayectoria del robot. Por otro lado, si se tiene un intervalo muy pequeño, se hacen muchas recorrecciones que frenan constantemente al robot, alterando la velocida, y lo hacen más propenso a caer en errores ocasionales, alterando la trayectoria.
+
+**¿Cúales son las ventajas y desventajas de usar un IMU para ajustar la dirección en lugar de encoders?**
+
+Al no depender de las ruedas, el IMU puede hacer ajustes independiente de las condiciones del terreno o ruedas. Por esto mismo, el IMU no calcula el desplazamiento lineal directamente, sino que con estimaciones, por lo que los ajustes pueden ser imprecisos.
+
+**Qué efecto tiene la inclinación o el giro en el movimiento del robot, y cómo se corrige con el IMU?**
+
+La inclinación y el giro le dan inestabilidad al robot, cambiando su orientación y alterando su trayectoria. El IMU puede detectar giros o inclinaciones no deseadas para cambiar la velocidad o detener el robot por completo para mantenerlo seguro y seguir con la trayectoria posteriormente.
