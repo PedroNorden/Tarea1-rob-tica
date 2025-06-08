@@ -1,4 +1,4 @@
-# Tarea1-robótica
+# Tarea2-robótica
 
 Vicente Rosales<br>
 Manuel Aguilera<br>
@@ -8,46 +8,35 @@ Pedro Nordenflycht<br>
 
 ## Videos demostración
 
-Parte 1: https://www.youtube.com/watch?v=PZLfdyxwgxA <br>
-Parte 2: https://www.youtube.com/watch?v=-RQUt73RMwE
+Parte 1: https://youtu.be/qeGlbYjwYgY <br>
+Parte 2: https://youtube.com/shorts/9f7LtR_2HHI?feature=share
 
 ## Preguntas parte 1:
 
-**¿Qué función cumplen los sensores, actuadores y controladores en el robot?**
+**¿Qué es la percepción en robótica y por qué es fundamental en los sistemas autónomos?**
 
-Los controladores funcionan como el cerebro del robot, dando las instrucciones para que este funcione. Los actuadores funcionan como el músculo y permiten transformar energía en fuerza, así permitiendo que el robot pueda moverse o realizar trabajos. Finalmente, los sensores funcionan como los órganos de los sentidos del robot, permitiendole procesar su entorno, tomar decisiones y actuar de manera autónoma.
+La percepción se refiere a la capacidad del robot para recolectar información de su entorno por medio de sensores, emulando los sentidos del ser humano. Esto es fundamental en sistemas autónomos ya que le permite orientarse, navegar espacios desconocidos con obstáculos, entre otros. Sin la percepción, el robot no puede tomar decisiones basadas en su entorno, perdiendo su autonomía.
 
-**¿Cómo se puede estimar la velocidad sin encoders?**
+**En el sensor ultrasónico HC-SR04 ¿Qué parámetro se mide para calcular la distancia?**
 
-Se puede estimar por medio de la velocidad enviada por PWM. Por medio de sensores LIDAR o ultrasónicos, también es posible estimar la velocidad según el cambio de posición relativa y el tiempo entre estas mediciones.
+El parámetro medido es el tiempo que tarda en volver una onda ultrasónica como eco. La distancia es calculada con la fórmula d = t(µs)/58, donde t es el tiempo total que tarda en volver la onda en microsegundos y 58 es un factor derivado de la velocidad del sonido en el aire.
 
-**¿Cómo afecta la falta de encoders a la precisión del movimiento?**
+**¿Cómo influye el ruido en las mediciones del sensor ultrasónico y cómo podría reducirse?**
 
-Sin un encoder, solo podemos esperar que el motor haga el movimiento esperado, lo que es improbable con distancias largas por imperfecciones en las ruedas o en la ruta. Por lo tanto, la acumulación de errores es mayor y no se puede saber la posición exacta sin uso de sensores externos.
+El ruido afecta a las mediciones alterando los datos y empeorando la precisión del sensor. Para reducir el ruido se pueden tomar varias medidas como tomar varias muestras y tomar el promedio de esta, aplicar un algoritmo de filtro de datos para filtrar el ruido o asegurarse de estar en una superficie adecuada, sin terreno irregular y en condiciones normales de entorno.
 
-**¿Qué es PWM y cómo ayuda a controlar la velocidad de los motores?**
+## Preguntas parte 2:
 
-Pulse Width Modulation o PWM es un pulso enviado desde el controlador hacia el motor para controlar el tiempo de encendido y apagado de este. Así, transformando la señal digital a análoga, permite controlar cuanto tiempo está prendido el motor para cambiar la aceleración y por consecuencia la velocidad.
+**Si el robot detecta el color rojo en el suelo ¿Qué acción debería tomar? ¿Por qué?** 
 
-**¿Cómo afecta el control de velocidad a la precisión de la navegación sin encoders?**
+Al detectar el color rojo, el robot debería detenerse por completo, esto porque fue programado para reaccionar de esta manera al color rojo.
 
-Al controlar la velocidad sin encoders, se pasan por alto las imperfecciones de la ruta o de las ruedas, por lo que el control de velocidad por medio de PWM, por ejemplo, va a ser constante y no se adapta a estas situaciones que cambian la distancia recorrida. Por esto, la precisión de la navegación es poco confiable.
+**Si el sensor ultrasónico detecta valores erráticos ¿Qué estrategias podrías aplicar para mejorar la precisión?**
 
+Las estrategias para mejorar la precisión del sensor ultrasónico son la aplicación de filtrado de datos, como el filtro de media movil, filtro de media ponderada y filtro pasa bajo. También, se puede verificar que el entorno del robot sea adecuado con temperaturas y vientos normales, con terreno estable y no movil.
 
-## Preguntas parte 2
+**Si tuvieras que integrar un nuevo sensor para mejorar la navegación del robot ¿Cuál eligirías y por qué?**
 
-**¿Cómo se calcula la velocidad del robot sin encoders usando PWM?**
+Eligiríamos el sensor LIDAR, por su robustez al ruido y porque le da al robot mayor autonomía al darle una visión más precisa y en 360º de su entorno, generando mapas 2D/2D, permitiendole mejorar su navegación.
 
-Se puede estimar la velocidad usando PWMs al enviar pulsos que hacen avanzar al robot, para luego calcular cuando tiempo tardó en recorrer una distancia específica. Este mismo experimento puede ser realizado varias veces para calibrar al robot, así finalmente se va a tener una estimación acertada de cual es la velocidad del robot al moverse usando PWM.
-
-**¿Cómo factores afectan la trayectoria y velocidad del robot al cambiar los intervalos de tiempo?**
-
-Estos cambian ya que si se tiene un intervalo muy grande, se hacen recorrecciones muy tarde, alterando la trayectoria del robot. Por otro lado, si se tiene un intervalo muy pequeño, se hacen muchas recorrecciones que frenan constantemente al robot, alterando la velocida, y lo hacen más propenso a caer en errores ocasionales, alterando la trayectoria.
-
-**¿Cúales son las ventajas y desventajas de usar un IMU para ajustar la dirección en lugar de encoders?**
-
-Al no depender de las ruedas, el IMU puede hacer ajustes independiente de las condiciones del terreno o ruedas. Por esto mismo, el IMU no calcula el desplazamiento lineal directamente, sino que con estimaciones, por lo que los ajustes pueden ser imprecisos.
-
-**Qué efecto tiene la inclinación o el giro en el movimiento del robot, y cómo se corrige con el IMU?**
-
-La inclinación y el giro le dan inestabilidad al robot, cambiando su orientación y alterando su trayectoria. El IMU puede detectar giros o inclinaciones no deseadas para cambiar la velocidad o detener el robot por completo para mantenerlo seguro y seguir con la trayectoria posteriormente.
+**¿Cuál es el tiempo de respuesta del robot al detectar un cambio de color?**
