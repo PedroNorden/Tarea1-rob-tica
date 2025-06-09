@@ -40,3 +40,4 @@ Las estrategias para mejorar la precisión del sensor ultrasónico son la aplica
 Eligiríamos el sensor LIDAR, por su robustez al ruido y porque le da al robot mayor autonomía al darle una visión más precisa y en 360º de su entorno, generando mapas 2D/2D, permitiendole mejorar su navegación.
 
 **¿Cuál es el tiempo de respuesta del robot al detectar un cambio de color?**
+El tiempo de respuesta del robot depende del tiempo de integración del sensor TCS34725 y del ciclo de lectura del programa. En este caso, el sensor tiene un tiempo de integración de 154 milisegundos y el programa incluye una espera (delay) de 1000 milisegundos entre lecturas. Por lo tanto, el tiempo de respuesta total es aproximadamente de 1.15 segundos. Este es el tiempo que tarda el robot en captar el nuevo color.
